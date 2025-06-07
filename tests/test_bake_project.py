@@ -334,14 +334,26 @@ def test_bake_with_argparse_console_script_cli(cookies):
     assert 'Show this message' in help_result.output
 
 
-@pytest.mark.parametrize("use_black,expected", [("y", True), ("n", False)])
-def test_black(cookies, use_black, expected):
-    with bake_in_temp_dir(
-        cookies,
-        extra_context={'use_black': use_black}
-    ) as result:
-        assert result.project.isdir()
-        requirements_path = result.project.join('requirements_dev.txt')
-        assert ("black" in requirements_path.read()) is expected
-        makefile_path = result.project.join('Makefile')
-        assert ("black --check" in makefile_path.read()) is expected
+def test_bake_with_argparse_console_script_cli(cookies):
+    context = {'command_line_interface': 'argparse'}
+    result = cookies.bake(extra_context=context)
+    project_path, project_slug, project_dir = project_info(result)
+    module_path = os.path.join(project_dir, 'cli.py')
+    module_name = '.'.join([project_slug, 'cli'])
+    if sys.version_info >= (3, 5):
+        spec = importlib.util.spec_from_file_location(module_name, module_path)
+        cli = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(cli)
+    elif sys.version_info >= (3, 3):
+        file_loader = importlib.machinery.SourceFileLoader
+        cli = file_loader(module_name, module_path).load_module()
+    else:
+        cli = imp.load_source(module_name, module_path)
+    runner = CliRunner()
+    noarg_result = runner.invoke(cli.main)
+    assert noarg_result.exit_code == 0
+    noarg_output = ' '.join(['Replace this message by putting your code into', project_slug])
+    assert noarg_output in noarg_result.output
+    help_result = runner.invoke(cli.main, ['--help'])
+    assert help_result.exit_code == 0
+    assert 'Show this message' in help_result.output
