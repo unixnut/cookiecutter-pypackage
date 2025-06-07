@@ -143,7 +143,6 @@ make my own packaging experience better.
 .. _PyPi: https://pypi.python.org/pypi
 .. _Mkdocs: https://pypi.org/project/mkdocs/
 .. _Pre-commit: https://pre-commit.com/
-.. _Black: https://black.readthedocs.io/en/stable/
 .. _Mypy: https://mypy.readthedocs.io/en/stable/
 
 .. _`Nekroze/cookiecutter-pypackage`: https://github.com/Nekroze/cookiecutter-pypackage
