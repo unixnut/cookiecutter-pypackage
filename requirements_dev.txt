@@ -1,6 +1,6 @@
-pytest==3.4.2
-tox==2.9.1
-cookiecutter>=1.4.0
-pytest-cookies==0.3.0
-watchdog==0.8.3
-alabaster==0.7.10
+pytest==8.1.1
+tox==4.14.2
+cookiecutter>=2.6.0
+pytest-cookies==0.7.0
+alabaster==0.7.16
+watchdog==4.0.0
