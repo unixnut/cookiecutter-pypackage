@@ -68,7 +68,7 @@ Similar Cookiecutter Templates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * `audreyfeldroy/cookiecutter-pypackage`_: (Formerly audreyr/cookiecutter-pypackage)
-  The original, now using pyproject.toml and typer for CLI.
+  The original, now using ``pyproject.toml`` and `typer`_ for CLI.
 
 * `Nekroze/cookiecutter-pypackage`_: A fork of this with a PyTest test runner,
   strict flake8 checking with Travis/Tox, and some docs and ``setup.py`` differences.
@@ -119,6 +119,7 @@ be a fork.
 .. _Mkdocs: https://pypi.org/project/mkdocs/
 .. _Pre-commit: https://pre-commit.com/
 .. _Mypy: https://mypy.readthedocs.io/en/stable/
+.. _typer: https://typer.tiangolo.com/
 
 .. _`audreyfeldroy/cookiecutter-pypackage`: https://github.com/audreyfeldroy/cookiecutter-pypackage
 .. _`Nekroze/cookiecutter-pypackage`: https://github.com/Nekroze/cookiecutter-pypackage
