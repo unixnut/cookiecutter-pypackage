@@ -4,8 +4,8 @@
 {% for _ in cookiecutter.project_name %}={% endfor %}
 
 {% if is_open_source %}
-.. image:: https://img.shields.io/pypi/v/{{ cookiecutter.project_slug }}.svg
-        :target: https://pypi.python.org/pypi/{{ cookiecutter.project_slug }}
+.. image:: https://img.shields.io/pypi/v/{{ cookiecutter.github_repo }}.svg
+        :target: https://pypi.python.org/pypi/{{ cookiecutter.github_repo }}
 
 .. image:: https://img.shields.io/travis/{{ cookiecutter.github_username }}/{{ cookiecutter.github_repo }}.svg
         :target: https://travis-ci.com/{{ cookiecutter.github_username }}/{{ cookiecutter.github_repo }}
